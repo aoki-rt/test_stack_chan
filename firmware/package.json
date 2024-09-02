@@ -35,9 +35,9 @@
   ],
   "author": "RT Coporation",
   "license": "Apache-2.0",
-  tbugs": {
+  "bugs": {
     "url": "https://github.com/rt-net/stack-chan/issues"
-  t,
+  },
   "homepage": "https://rt-net.jp/products/rt-stackchan",
   "private": true,
   "devDependencies": {
