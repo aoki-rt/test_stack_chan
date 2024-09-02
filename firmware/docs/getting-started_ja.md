@@ -20,7 +20,7 @@
   * Python3.12(macOSの場合は、brewでインストールするのではなく[https://www.python.org](https://www.python.org)からダウンロードしインストールしてください。)
   * xcode-select(macOS)  
 
-## ｽﾀｯｸﾁｬﾝリポジトリのクローンとnode_moudleのインストール
+## ｽﾀｯｸﾁｬﾝリポジトリのクローンとnodeのmoduleのインストール
 
 ```console
 $ git clone https://github.com/rt-net/stack-chan.git
