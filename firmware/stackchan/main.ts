@@ -17,10 +17,7 @@ import { loadPreferences, asyncWait } from 'stackchan-util'
 
 function createRobot() {
   const drivers = new Map<string, new (param: unknown) => Driver>([
-    ['scservo', SCServoDriver],
     ['dynamixel', DynamixelDriver],
-    ['pwm', PWMServoDriver],
-    ['rs30x', RS30XDriver],
     ['none', NoneDriver],
   ])
   const ttsEngines = new Map<string, new (param: unknown) => TTS>([
@@ -30,7 +27,6 @@ function createRobot() {
     ['elevenlabs', ElevenLabsTTS],
   ])
   const renderers = new Map<string, new (param: unknown) => Renderer>([
-    ['dog', DogFaceRenderer],
     ['simple', SimpleRenderer],
   ])
 
