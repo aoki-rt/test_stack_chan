@@ -13,6 +13,6 @@
   "preload": [
     "dynamixel",
     "dynamixel-driver",
-    "none-driver",
+    "none-driver"
   ]
 }
