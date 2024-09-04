@@ -14,8 +14,11 @@ import { Renderer as SimpleRenderer } from 'simple-face'
 import { NetworkService } from 'network-service'
 import Touch from 'touch'
 import { loadPreferences, asyncWait } from 'stackchan-util'
+import TextDecoder from 'text/decoder' 
+
 
 function createRobot() {
+  const decoder = new TextDecoder()
   const drivers = new Map<string, new (param: unknown) => Driver>([
     ['dynamixel', DynamixelDriver],
     ['none', NoneDriver],
@@ -73,6 +76,7 @@ function createRobot() {
     tts,
     button,
     touch,
+    decoder,
   })
 }
 

@@ -7,6 +7,7 @@
         "$(MODDABLE)/examples/manifest_typings.json",
         "$(MODULES)/base/modules/manifest.json",
         "$(MODULES)/data/crc/manifest.json",
+        "$(MODULES)/data/text/decoder/manifest.json",
         "./drivers/manifest_driver.json",
         "./ble/manifest_ble.json",
         "./dialogues/manifest_dialogue.json",

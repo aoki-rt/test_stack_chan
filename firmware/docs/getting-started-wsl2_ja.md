@@ -119,10 +119,10 @@ $ sudo apt update
 
 ### `Python venv`のインストール
 
-Pythonの仮想環境を作成する際に使用するvenvツールが含まれているpython3.1i-venvをインストールします。
+Pythonの仮想環境を作成する際に使用するvenvツールが含まれているpython3.10-venvをインストールします。
 
 ```=bash
-$  sudo apt install -y python3.11-venv
+$  sudo apt install -y python3.10-venv
 ```
 
 <br>

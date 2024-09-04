@@ -10,14 +10,14 @@
 
 * ホストPC
     * Linux(Ubuntu22.04 or Ubuntu24.04)でテスト済み
-    * MacOS(Sonoma 14)でテスト済み
+    * MacOS(Sonoma 14 Appleシリコン)でテスト済み
 * [ｽﾀｯｸﾁｬﾝ アールティver.](https://rt-net.jp/products/rt-stackchan/) または その互換品
 * USB type-Cケーブル
 * 事前にインストールしておくアプリ
   * [git](https://git-scm.com/)
   * [Node.js](https://nodejs.org/en/)
-    * v20.11.0でテスト済み
-  * Python3.12(macOSの場合は、brewでインストールするのではなく[https://www.python.org](https://www.python.org)からダウンロードしインストールしてください。)
+    * v22.7.0でテスト済み
+  * Python3.10(macOSの場合は、brewでインストールするのではなく[https://www.python.org](https://www.python.org)からダウンロードしインストールしてください。)
   * xcode-select(macOS)  
 
 ## ｽﾀｯｸﾁｬﾝリポジトリのクローンとnodeのmoduleのインストール
@@ -56,12 +56,14 @@ macOSのの場合、自動で.zshrcにsource /User/username/.local/share/xs-dev-
 [公式サイトの手順（英語）](https://github.com/Moddable-OpenSource/moddable/blob/public/documentation/Moddable%20SDK%20-%20Getting%20Started.md)に従ってModdableSDKとESP-IDFをインストールします。
 xs-dev（CLI）でうまくセットアップできない場合はこちらを行ってください。
 
-**ｽﾀｯｸﾁｬﾝ アールティver.では、Moddable SDK 4.1 での動作を想定しています。**
+**ｽﾀｯｸﾁｬﾝ アールティver.では、Moddable SDK 4.9.5、ESP-IDF 5.3.0 での動作を想定しています。**
+**intel macはModdable SDK 4.7.0 + ESP-IDF 5.1.0 python3.9.0で動作することは確認しています。intel macで使用するにはfirmware/package.jsonの"setup": "xs-dev setup --target-branch 4.9.5"を"setup": "xs-dev setup --target-branch 4.7.0"にすることでインストールできますがサポート対象外になります。**
+
 
 ## 環境のテスト
 
 `npm run doctor`コマンドで環境のテストができます。
-インストールに成功していれば次のようにModdable SDKのバージョンとして4.1が表示され、Supported target devicesにesp32が表示されます。
+インストールに成功していれば次のようにModdable SDKのバージョンとして4.9.5が表示され、Supported target devicesにesp32が表示されます。
 
 ```console
 $ npm run doctor
@@ -79,7 +81,7 @@ xs-dev environment info:
   Shell                      /bin/bash
   NodeJS Version             v20.11.0 (/home/ubuntu/.volta/tools/image/node/20.11.0/bin/node)
   Python Version             3.10.12 (/home/ubuntu/.rye/shims/python)
-  Moddable SDK Version       4.1 (/home/ubuntu/.local/share/moddable)
+  Moddable SDK Version       4.9.5 (/home/ubuntu/.local/share/moddable)
   Supported target devices   lin, esp32
   ESP32 IDF Directory        /home/ubuntu/.local/share/esp32/esp-idf
 ```
