@@ -41,9 +41,10 @@ $ npm install
 
 ｽﾀｯｸﾁｬﾝはセットアップ手順をnpmスクリプト化しています。
 `stack-chan/firmware`ディレクトリで次のコマンドを実行します。
-
+以下に示す１つ目のコマンドの実行直後、Ubuntuに設定したパスワードの入力が要求されますので入力してください。 パスワード入力後、一定時間は同様のコマンドを実行してもパスワードは要求されません。 ２つ目のコマンドでは、再度パスワードが要求されない内に実行してください。 もし、何らかの理由で１つめのコマンド実行から時間がかかってしまった場合は１つ目のコマンドの実行からやり直してください。
 
 ```console
+$ sudo echo "emporary SuperUser Grant"
 $ npm run setup
 $ npm run setup -- --device=esp32
 ```
@@ -73,14 +74,14 @@ $ npm run doctor
 
 stack-chan environment info:
 55d005ac9f0764a4ebc561b7d0a2a29a66ee5199
-/home/kurasawa/Projects/stack-chan
+/home/ubuntu/stack-chan
 xs-dev environment info:
-  CLI Version                0.28.1
+  CLI Version                0.32.3
   OS                         Linux
   Arch                       x64
   Shell                      /bin/bash
-  NodeJS Version             v20.11.0 (/home/ubuntu/.volta/tools/image/node/20.11.0/bin/node)
-  Python Version             3.10.12 (/home/ubuntu/.rye/shims/python)
+  NodeJS Version             v22.8.0 (/home/ubuntu/.nvm/versions/node/22.8.0/bin/node)
+  Python Version             3.12.3 (/usr/bin/python)
   Moddable SDK Version       4.9.5 (/home/ubuntu/.local/share/moddable)
   Supported target devices   lin, esp32
   ESP32 IDF Directory        /home/ubuntu/.local/share/esp32/esp-idf
