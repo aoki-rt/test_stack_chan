@@ -119,10 +119,10 @@ $ sudo apt update
 
 ### `Python venv`のインストール
 
-Pythonの仮想環境を作成する際に使用するvenvツールが含まれているpython3.10-venvをインストールします。
+Pythonの仮想環境を作成する際に使用するvenvツールが含まれているpython3.1i-venvをインストールします。
 
 ```=bash
-$  sudo apt install -y python3.10-venv
+$  sudo apt install -y python3.11-venv
 ```
 
 <br>
@@ -151,7 +151,7 @@ Ubuntuのウインドウを閉じ、Windows11のスタートメニューからUb
 
 `Node.js`と`npm`をインストールします。
 ```bash
-$ volta install node@20.11.0
+$ volta install node@22.7.0
 ```
 
 ### インストールした`Node.js`と`npm`を確認
@@ -172,7 +172,7 @@ $ node -v
 
 ｽﾀｯｸﾁｬﾝのプログラムをダウンロードします。
 ```bash
-$ git clone --recursive https://github.com/rt-net/stack-chan.git
+$ git clone https://github.com/rt-net/stack-chan.git
 ```
 
 <img src="images/getting-started-wsl2_ja/git_clone.jpg" width="100%">
