@@ -59,6 +59,7 @@ function createRobot() {
     throw new Error(errors.join('\n'))
   }
 
+
   const driver = new DynamixelDriver(driverPrefs)
   const renderer = new Renderer(rendererPrefs)
   const tts = new TTS(ttsPrefs)

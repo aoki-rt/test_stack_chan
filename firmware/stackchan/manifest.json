@@ -50,12 +50,7 @@
         "driver": {
             "type": "dynamixel",
             "panId": 1,
-            "tiltId": 2,
-            "baund": 1000000
-        },
-        "serial": {
-            "transmit": 17,
-            "receive": 16
+            "tiltId": 2
         },
         "rotation": 90
     },
@@ -79,11 +74,6 @@
             "config": {
                 "tts": {
                     "sampleRate": 24000
-                },
-                "serial": {
-                    "transmit": 17,
-                    "receive": 16
-
                 },
                 "rotation": 0,
                 "virtualButton": true
