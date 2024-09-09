@@ -1,0 +1,19 @@
+{
+    "include": [
+        "$(MODDABLE)/examples/manifest_base.json",
+        "$(MODDABLE)/examples/manifest_typings.json",
+        "../../../stackchan/drivers/manifest_driver.json"
+    ],
+    "modules": {
+        "*": [
+            "./main"
+        ]
+    },
+    "platforms":{
+	"esp32": {
+		"config" :{
+			"startupSound": false
+		}
+	}
+    }
+}

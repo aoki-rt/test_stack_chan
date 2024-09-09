@@ -4,7 +4,6 @@ import config from 'mc/config'
 import Modules from 'modules'
 import { Robot, Driver, TTS, Renderer } from 'robot'
 import { DynamixelDriver } from 'dynamixel-driver'
-import { NoneDriver } from 'none-driver'
 import { TTS as LocalTTS } from 'tts-local'
 import { TTS as RemoteTTS } from 'tts-remote'
 import { TTS as VoiceVoxTTS } from 'tts-voicevox'
@@ -19,10 +18,6 @@ import TextDecoder from 'text/decoder'
 
 function createRobot() {
   const decoder = new TextDecoder()
-  const drivers = new Map<string, new (param: unknown) => Driver>([
-    ['dynamixel', DynamixelDriver],
-    ['none', NoneDriver],
-  ])
   const ttsEngines = new Map<string, new (param: unknown) => TTS>([
     ['local', LocalTTS],
     ['remote', RemoteTTS],
@@ -39,8 +34,8 @@ function createRobot() {
 
   // Servo Driver
   const driverPrefs = loadPreferences('driver')
-  const driverKey = driverPrefs.type ?? 'scservo'
-  const Driver = drivers.get(driverKey)
+  const driverKey = "dynamixel"
+  const Driver = DynamixelDriver
 
   // TTS
   const ttsPrefs = loadPreferences('tts')
@@ -52,9 +47,8 @@ function createRobot() {
   const rendererKey = rendererPrefs.type ?? 'simple'
   const Renderer = renderers.get(rendererKey)
 
-  if (!Driver || !TTS || !Renderer) {
+  if ( !TTS || !Renderer) {
     for (const [key, klass] of [
-      [driverKey, Driver],
       [ttsKey, TTS],
       [rendererKey, Renderer],
     ]) {
@@ -65,7 +59,7 @@ function createRobot() {
     throw new Error(errors.join('\n'))
   }
 
-  const driver = new Driver(driverPrefs)
+  const driver = new DynamixelDriver(driverPrefs)
   const renderer = new Renderer(rendererPrefs)
   const tts = new TTS(ttsPrefs)
   const button = globalThis.button

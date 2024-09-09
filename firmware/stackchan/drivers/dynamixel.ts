@@ -206,8 +206,8 @@ class Dynamixel {
     // Dynamixel.packetHandler = new PacketHandler({
     packetHandler?.close()
     packetHandler = new PacketHandler({
-      receive: config.serial?.receive ?? 16,
-      transmit: config.serial?.transmit ?? 17,
+      receive: config.serial?.receive ?? 6,
+      transmit: config.serial?.transmit ?? 7,
       baud,
       port: 2,
     })
@@ -229,8 +229,8 @@ class Dynamixel {
     this.#txBuf = new Uint8Array(64)
     if (packetHandler == null) {
       packetHandler = new PacketHandler({
-        receive: config.serial?.receive ?? 16,
-        transmit: config.serial?.transmit ?? 17,
+        receive: config.serial?.receive ?? 6,
+        transmit: config.serial?.transmit ?? 7,
         baud: baudrate,
         port: 2,
       })

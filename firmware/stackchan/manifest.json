@@ -51,10 +51,7 @@
             "type": "dynamixel",
             "panId": 1,
             "tiltId": 2,
-            "pwmPan": 5,
-            "pwmTilt": 2,
-            "offsetTilt": 0,
-            "offsetPan": 0
+            "baund": 1000000
         },
         "serial": {
             "transmit": 17,
@@ -71,43 +68,22 @@
         "id": "tech.moddable.stackchan",
         "devices": [
             "com.m5stack",
-            "com.m5stack.fire",
-            "com.m5stack.core2",
             "com.m5stack.cores3"
         ]
     },
     "platforms": {
-        "esp32/m5stack_core2": {
-            "config": {
-                "driver": {
-                    "pwmPan": 19,
-                    "pwmTilt": 27
-                },
-                "tts": {
-                    "sampleRate": 24000
-                },
-                "serial": {
-                    "transmit": 14,
-                    "receive": 13
-                },
-                "rotation": 0
-            }
-        },
         "esp32/m5stack_cores3": {
             "build": {
                 "PARTITIONS_FILE": "./sdkconfig/customPartitions.csv"
             },
             "config": {
-                "driver": {
-                    "pwmPan": 19,
-                    "pwmTilt": 27
-                },
                 "tts": {
                     "sampleRate": 24000
                 },
                 "serial": {
-                    "transmit": 7,
-                    "receive": 6
+                    "transmit": 17,
+                    "receive": 16
+
                 },
                 "rotation": 0,
                 "virtualButton": true
