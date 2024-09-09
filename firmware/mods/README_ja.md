@@ -7,16 +7,16 @@ MODの書き込み方法は[プログラムのビルドと書き込み](../docs/
 
 ## Look Around: きょろきょろｽﾀｯｸﾁｬﾝ
 
-![きょろきょろｽﾀｯｸﾁｬﾝ](../docs/images/stackchan.gif)
-    - 環境設定時のAボタンに入っている動作と同じです。
-    - modのインストール方法
-        - ホストのビルド時に、Wi-Fiの設定はは不要です。
-            - $ npm run build --target=esp32/m5stack_cores3
-        - ビルドをした場合は、ホストのプログラムを書き込みます。
-            -  $ npm run deploy --target=esp32/m5stack_cores3
-        - modの書き込み
-            - $ npm run mod --target=esp32/m5stack_cores3 ./mods/look_around/manifest.json
-- [look_around](./look_around/)
+![きょろきょろｽﾀｯｸﾁｬﾝ](../docs/images/stackchan.gif)  
+    - 環境設定時のAボタンに入っている動作と同じです。  
+    - modのインストール方法  
+        - ホストのビルド時に、Wi-Fiの設定はは不要です。  
+            - $ npm run build --target=esp32/m5stack_cores3  
+        - ビルドをした場合は、ホストのプログラムを書き込みます。  
+            -  $ npm run deploy --target=esp32/m5stack_cores3  
+        - modの書き込み  
+            - $ npm run mod --target=esp32/m5stack_cores3 ./mods/look_around/manifest.json  
+- [look_around](./look_around/)  
 
 ## Monologue: ぽしょぽしょ独り言ｽﾀｯｸﾁｬﾝ
 

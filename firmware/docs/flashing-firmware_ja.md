@@ -28,11 +28,9 @@
 
 | キー              | 説明                                            | 使用可能な値                                |
 | ----------------- | ----------------------------------------------- | ------------------------------------------- |
-| driver.type       | モータドライバの種類                            | "scservo", "rs30x", "pwm", "none"           |
+| driver.type       | モータドライバの種類                            | "dynamixel",           |
 | driver.panId      | パン軸（首の横回転）に使うシリアルサーボの ID   | 1~254                                       |
 | driver.tiltId     | チルト軸（首の縦回転）に使うシリアルサーボの ID | 1~254                                       |
-| driver.offsetPan  | パン軸のオフセット                              | -90~90                                      |
-| driver.offsetTilt | チルト軸のオフセット                            | -90~90                                      |
 | tts.type          | [TTS](./text-to-speech_ja.md) の種類            | "local", "voicevox"                         |
 | tts.host          | TTS がサーバと通信する場合のホスト名            | "localhost", "ttsserver.local" などの文字列 |
 | tts.port          | TTS がサーバと通信する場合のポート番号          | 1~65535                                     |
@@ -41,8 +39,8 @@
 
 ## 基本プログラム（ホスト）の書き込み
 
-前述の通りｽﾀｯｸﾁｬﾝのファームウェアは基本プログラム（ホスト）とユーザアプリケーション（MOD）から構成されます。
-esp-idfのバージョンが5.xからesp32に接続しているPSRAMの扱いが変わっています。デフォルト設定ではスムーズに動かないため一部変更します。 
+前述の通りｽﾀｯｸﾁｬﾝのファームウェアは基本プログラム（ホスト）とユーザアプリケーション（MOD）から構成されます。  
+esp-idfのバージョンが5.xからesp32に接続しているPSRAMの扱いが変わっています。デフォルト設定ではスムーズに動かないため一部変更します。  
 ~/.local/share/moddable/build/devices/esp32/targets/m5stack_cores3/sdkconifgのファイルにある
 CONFIG_SPIRAM=yをCONFIG_SPIRAM_nに書き換えます。
 
@@ -56,9 +54,10 @@ $ npm run build --target=esp32/m5stack_cores3
 $ npm run deploy --target=esp32/m5stack_cores3
 ```
 
-Ubuntuの場合、書き込みポートがReadOnlyになっています。sudo chmod 666 /dev/ttyACM0でモードを書き換えるが、永続的にUSBポートの使用権限を変更する場合は、次のコマンドを実行してPCを再起動します。
+Ubuntuの場合、書き込みポートがReadOnlyになっています。sudo chmod 666 /dev/ttyACM0でモードを書き換えるが、永続的にUSBポートの使用権限を変更する場合は、次のコマンドを実行してPCを再起動します。  
+```console
 $sudo usermod -aG dialout $USER
-
+```
 
 ビルドしたプログラムは`$MODDABLE/build/`ディレクトリ配下に保存されます。
 
