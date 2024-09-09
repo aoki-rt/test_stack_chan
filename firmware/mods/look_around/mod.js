@@ -10,8 +10,6 @@ export function onRobotCreated(robot) {
       isFollowing = !isFollowing
       const text = isFollowing ? 'looking' : 'stop'
       robot.showBalloon(text)
-   //   await asyncWait(1000)
-   //   robot.hideBalloon()
     }
   }
   robot.button.b.onChanged = function () {
