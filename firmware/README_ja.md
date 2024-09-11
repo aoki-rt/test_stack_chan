@@ -34,5 +34,3 @@
 - [API](docs/api_ja.md)
 - [MOD](mods/README_ja.md)
 
-- [Webブラウザからのファームウェア書き込み](docs/flashing-firmware-web_ja.md)
-- [Webブラウザからの設定変更](docs/setting-preferences-web_ja.md)
