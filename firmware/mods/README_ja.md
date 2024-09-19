@@ -108,8 +108,9 @@ network={
 			- C:\Users\ユーザー名\pulseaudio-1.1\etc\pulse\default.paを編集します。
 				- load-module module-waveout sink_name=output source_name=inputの最後にrecode=0を追加します。
 					- load-module module-waveout sink_name=output source_name=input record=0
-				-  #load-module module-native-protocol-tcpのコメントを外してipアドレスを追加します
-					- load-module module-native-protocol-tcp auth-ip-acl=127.0.01;10.0.0.0/8;172.16.0.0/12;192.168.0.0/16
+				-  #load-module module-native-protocol-tcpとload-module module-esound-protocol-tcpのコメントを外してipアドレスを追加します
+					- load-module module-esound-protocol-tcp auth-ip-acl=127.0.0.1;172.16.0.0/12
+					- load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1;172.16.0.0/12: 
 			- C:\User\ユーザー名\pulseaudio-1.1\etc\pulse\daemon.confを編集します。
 				- セミコロンを外して数字を20から-1に変更します。
 					- exit-idle-time = -1
@@ -117,7 +118,22 @@ network={
 			- C:\User\ユーザー名\puseaudio-1.1\bin\pulseaudio.exeをダブルクリックで起動します。一度目はすぐに終了してしまいます。もう一度ダブルクリックして起動します。エラーがありますが、終了しないのであればせそのままにします。
 			- Windowsを起動するたびにpulseaduio.exeを起動します。
 	- Ubuntu側
+		- WebSocketサーバの環境整えます
+			- git clone https://github.com/meganetaaan/simple-stt-server.git
+			- cd simple-stt-server
+			- nodeが新しいとインストールできないためnodeのバージョンを16にします。
+				volta install node@16
+			- npm install
+			- npm audit 
+			- npm audit fix
+		- VOSKのモデルをダウンロードしsimple-stt-serverのしたにmodelのフォルダーを作りダウンロードした出たデータを展開した状態でコピーします。
+			- ダウンロードするデータ https://alphacephei.com/vosk/models/vosk-model-ja-0.22.zip
+			- windowsからsimple-stt-serverのフォルダーにアクセスするにはエクスプローラーの左にあるLinuxのフォルダーがアクセスすることができます。Linux/Ubuntu-22.04/home/ubuntu/simple-sst-server
+			-
+		- sudo apt install alsa-utils
+		- sudo apt install libpulse0
 		- pulseasudioをインストールします。
 			- sudo apt install -y pulseaudio
-		- PULSE_SERVERの環境変数を設定します。
-			- echo 'export PULSE_SERVER=tcp:$(grep nameserver /etc/resolv.conf | awk '\''{print $2}'\'')' >> ~/.profile:q	 
+		- PULSE_SERVERの環境変数を設定します。~/.bashrcの最後に次の二行を追加します
+			- export HOST_IP="$(ip route |awk '/^default/{print $3}')"
+			- export PULSE_SERVER="tcp:$HOST_IP"
