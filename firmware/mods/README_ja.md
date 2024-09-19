@@ -96,3 +96,28 @@ network={
         -  $ npm run deploy --target=esp32/m5stack_cores3  
     - modの書き込み  
         - $ npm run mod --target=esp32/m5stack_cores3 ./mods/face/manifest.json  
+
+## おしゃべりスタックチャン
+- CharGPTを使ってスタックちゃんと会話をします。
+- macOSは対象外になります。
+- Windowsは以下のインストールが必要になります。
+	- Windows側
+		- Pulse Audio On Windowsをダウンロードしインストールします。
+			- https://www.freedesktop.org/wiki/Software/PulseAudio/Ports/Windows/Support/からzipfile containing preview binariesをクリックしてダウンロードします。
+			- C:\Users\ユーザー名\pulseaudio-1.1に展開します。
+			- C:\Users\ユーザー名\pulseaudio-1.1\etc\pulse\default.paを編集します。
+				- load-module module-waveout sink_name=output source_name=inputの最後にrecode=0を追加します。
+					- load-module module-waveout sink_name=output source_name=input record=0
+				-  #load-module module-native-protocol-tcpのコメントを外してipアドレスを追加します
+					- load-module module-native-protocol-tcp auth-ip-acl=127.0.01;10.0.0.0/8;172.16.0.0/12;192.168.0.0/16
+			- C:\User\ユーザー名\pulseaudio-1.1\etc\pulse\daemon.confを編集します。
+				- セミコロンを外して数字を20から-1に変更します。
+					- exit-idle-time = -1
+		- Pulse Audioを起動します
+			- C:\User\ユーザー名\puseaudio-1.1\bin\pulseaudio.exeをダブルクリックで起動します。一度目はすぐに終了してしまいます。もう一度ダブルクリックして起動します。エラーがありますが、終了しないのであればせそのままにします。
+			- Windowsを起動するたびにpulseaduio.exeを起動します。
+	- Ubuntu側
+		- pulseasudioをインストールします。
+			- sudo apt install -y pulseaudio
+		- PULSE_SERVERの環境変数を設定します。
+			- echo 'export PULSE_SERVER=tcp:$(grep nameserver /etc/resolv.conf | awk '\''{print $2}'\'')' >> ~/.profile:q	 
