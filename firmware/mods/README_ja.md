@@ -107,8 +107,6 @@ network={
 			- https://www.freedesktop.org/wiki/Software/PulseAudio/Ports/Windows/Support/からzipfile containing preview binariesをクリックしてダウンロードします。
 			- C:\Users\ユーザー名\pulseaudio-1.1に展開します。
 			- C:\Users\ユーザー名\pulseaudio-1.1\etc\pulse\default.paを編集します。
-				- load-module module-waveout sink_name=output source_name=inputの最後にrecode=0を追加します。
-					- load-module module-waveout sink_name=output source_name=input record=0
 				-  #load-module module-native-protocol-tcpとload-module module-esound-protocol-tcpのコメントを外してipアドレスを追加します
 					- load-module module-esound-protocol-tcp auth-ip-acl=127.0.0.1;172.16.0.0/12
 					- load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1;172.16.0.0/12: 
