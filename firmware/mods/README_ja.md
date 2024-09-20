@@ -100,6 +100,7 @@ network={
 ## おしゃべりスタックチャン
 - CharGPTを使ってスタックちゃんと会話をします。
 - macOSは対象外になります。
+- 使用するsimple-stt-serverが要求しているnodeのversionが16から20になっています
 - Windowsは以下のインストールが必要になります。
 	- Windows側
 		- Pulse Audio On Windowsをダウンロードしインストールします。
@@ -137,3 +138,17 @@ network={
 		- PULSE_SERVERの環境変数を設定します。~/.bashrcの最後に次の二行を追加します
 			- export HOST_IP="$(ip route |awk '/^default/{print $3}')"
 			- export PULSE_SERVER="tcp:$HOST_IP"
+                - simple-stt-serverのところでnpm start -- --device default
+
+- Ubuntu
+	- 必要なliblaryをインストールします
+		- sudo apt install alsa-utils
+		- sudo apt install alsa-tools
+
+A
+B
+D
+D
+		- sudo apt install alisa-util
+C
+                - simple-stt-serve
