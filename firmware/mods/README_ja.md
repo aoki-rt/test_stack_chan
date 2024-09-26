@@ -43,6 +43,23 @@ MODの書き込み方法は[プログラムのビルドと書き込み](../docs/
 
 ![顔の同期](../docs/images/face-sync.gif)
 ![ｽﾀｯｸﾁｬﾝ応援団](../docs/images/cheerup.gif)
+- PCとｽﾀｯｸﾁｬﾝを一対一でBLEで接続します。
+- PC側の環境設定
+	- https://github.com/meganetaaan/suburi-mediapipeをクローンします。
+		- git clone https://github.com/meganetaaan/suburi-mediapipe
+	- 必要なツールをインストールします。
+		- sudo apt install -y curl
+		- curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+		- echo "deb https://dl.yarnpkg.com/debian stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+		- sudo apt update && sudo apt install yarn
+		- npm install react react-dom
+		- npm install react-scripts
+	- opensslのバージョンとnodeのバージョンの互換性のため以下のコマンドが必要になります。
+		- export NODE_OPTIONS=--openssl-legacy-provider
+	- ツールを機動
+		- cd suburi-mediapipe/frontend
+
+
 
 - [cheerup_ble_lite](./cheerup_ble_lite/): BLE版
 - [cheerup_ws](./cheerup_ws/): WebSocket版
