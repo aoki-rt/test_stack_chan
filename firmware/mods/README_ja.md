@@ -47,20 +47,19 @@ MODの書き込み方法は[プログラムのビルドと書き込み](../docs/
 - PC側の環境設定
 	- https://github.com/meganetaaan/suburi-mediapipeをクローンします。
 		- git clone https://github.com/meganetaaan/suburi-mediapipe
+		- cd suburi-mediapipe/frontend
 	- 必要なツールをインストールします。
 		- sudo apt install -y curl
 		- curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 		- echo "deb https://dl.yarnpkg.com/debian stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-		- sudo apt update && sudo apt install yarn
+		- sudo apt update && sudo apt install yarn(macOSはbrew install yarn)
 		- npm install react react-dom
 		- npm install react-scripts
 	- opensslのバージョンとnodeのバージョンの互換性のため以下のコマンドが必要になります。
+		- ターミナルを開くたびに以下のコマンドが必要になるため、毎回打ち込むかbashrcに追加する必要があります。
 		- export NODE_OPTIONS=--openssl-legacy-provider
 	- ツールを機動
-		- cd suburi-mediapipe/frontend
-
-
-
+		- yarn start
 - [cheerup_ble_lite](./cheerup_ble_lite/): BLE版
 - [cheerup_ws](./cheerup_ws/): WebSocket版
 
