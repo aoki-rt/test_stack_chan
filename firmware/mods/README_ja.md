@@ -45,6 +45,8 @@ MODの書き込み方法は[プログラムのビルドと書き込み](../docs/
 ![ｽﾀｯｸﾁｬﾝ応援団](../docs/images/cheerup.gif)
 - PCとｽﾀｯｸﾁｬﾝを一対一でBLEで接続します。
 - PC側の環境設定
+	- windowsの場合nodeを18.12以上にする必要があります。
+		- volta install node@18
 	- https://github.com/meganetaaan/suburi-mediapipeをクローンします。
 		- git clone https://github.com/meganetaaan/suburi-mediapipe
 		- cd suburi-mediapipe/frontend
@@ -52,9 +54,14 @@ MODの書き込み方法は[プログラムのビルドと書き込み](../docs/
 		- sudo apt install -y curl
 		- curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 		- echo "deb https://dl.yarnpkg.com/debian stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-		- sudo apt update && sudo apt install yarn(macOSはbrew install yarn)
+		- sudo apt update && sudo apt install yarn(macOSはbrew install yarn,Windowsはvolta install yarnとyarn install)
 		- npm install react react-dom
 		- npm install react-scripts
+	- google-chromeをインストール(windowsのみ)
+		-  sudo apt update
+		- sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+		- sudo wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+		- sudo apt install google-chrome-stable
 	- opensslのバージョンとnodeのバージョンの互換性のため以下のコマンドが必要になります。
 		- ターミナルを開くたびに以下のコマンドが必要になるため、毎回打ち込むかbashrcに追加する必要があります。
 		- export NODE_OPTIONS=--openssl-legacy-provider
