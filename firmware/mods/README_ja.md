@@ -90,13 +90,12 @@ MODの書き込み方法は[プログラムのビルドと書き込み](../docs/
         - 使用するSSIDのパスワードをパスフレーズに変換して/etc/wpa_supplicant.confに書き込みます。
         - SSIDのパスワードをパスフレーズに変換するコマンド
             - sudo wpa_passphrase Wi-FiのSSID　Wi-Fiのパスワード
-        - ```
-        wpa_supplicant.contをルート権限で開き、先ほど生成したパスフレーズとSSIDを書き込みます。
+        - wpa_supplicant.contをルート権限で開き、先ほど生成したパスフレーズとSSIDを書き込みます。
 network={
 	ssid=”Wi-FiのSSID”
 	psk=生成された暗号文
 }
-```
+
     - Chromeを開き、URLにhttp://10.254.239.1を入力します
     - Face Detectorを選択して顔のデータが出力します。
 - modのインストール
