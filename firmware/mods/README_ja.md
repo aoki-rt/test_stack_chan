@@ -64,7 +64,10 @@ MODの書き込み方法は[プログラムのビルドと書き込み](../docs/
 		- sudo apt install google-chrome-stable
 	- opensslのバージョンとnodeのバージョンの互換性のため以下のコマンドが必要になります。
 		- ターミナルを開くたびに以下のコマンドが必要になるため、毎回打ち込むかbashrcに追加する必要があります。
-		- export NODE_OPTIONS=--openssl-legacy-provider
+			- export NODE_OPTIONS=--openssl-legacy-provider
+		- node_moduleのcacheに書き込み権限をついかします。
+			- sudo chmod 777 /home/ubuntu/suburi-mediapipe/frontend/node_modules/.cache
+
 	- ツールを機動
 		- yarn start
 - [cheerup_ble_lite](./cheerup_ble_lite/): BLE版
