@@ -47,6 +47,7 @@ MODの書き込み方法は[プログラムのビルドと書き込み](../docs/
 - PC側の環境設定
 	- windowsの場合nodeを18.12以上にする必要があります。
 		- volta install node@18
+	- safariは対応していないためgoogle-chromeをインストールする必要があります。
 	- https://github.com/meganetaaan/suburi-mediapipeをクローンします。
 		- git clone https://github.com/meganetaaan/suburi-mediapipe
 		- cd suburi-mediapipe/frontend
