@@ -40,7 +40,6 @@ MODの書き込み方法は[プログラムのビルドと書き込み](../docs/
 - [monologue](./monologue/)
 
 ## Cheerup: ｽﾀｯｸﾁｬﾝ応援団
-
 ![顔の同期](../docs/images/face-sync.gif)
 ![ｽﾀｯｸﾁｬﾝ応援団](../docs/images/cheerup.gif)
 - PCとｽﾀｯｸﾁｬﾝを一対一でBLEで接続します。
@@ -48,6 +47,8 @@ MODの書き込み方法は[プログラムのビルドと書き込み](../docs/
 	- windowsの場合nodeを18.12以上にする必要があります。
 		- volta install node@18
 	- safariは対応していないためgoogle-chromeをインストールする必要があります。
+	- chromeのExperimetal Web Platform featuresのフラグをEnableにする必要があります。
+		chromeのURLにchrome://flagsを入力しExperimetal Web Platform featuresを停止から有効にします。
 	- https://github.com/meganetaaan/suburi-mediapipeをクローンします。
 		- git clone https://github.com/meganetaaan/suburi-mediapipe
 		- cd suburi-mediapipe/frontend
@@ -66,9 +67,8 @@ MODの書き込み方法は[プログラムのビルドと書き込み](../docs/
 	- opensslのバージョンとnodeのバージョンの互換性のため以下のコマンドが必要になります。
 		- ターミナルを開くたびに以下のコマンドが必要になるため、毎回打ち込むかbashrcに追加する必要があります。
 			- export NODE_OPTIONS=--openssl-legacy-provider
-		- node_moduleのcacheに書き込み権限をついかします。
+		- node_moduleのcacheに書き込み権限を追加します。
 			- sudo chmod 777 /home/ubuntu/suburi-mediapipe/frontend/node_modules/.cache
-
 	- ツールを機動
 		- yarn start
 - [cheerup_ble_lite](./cheerup_ble_lite/): BLE版
@@ -161,7 +161,7 @@ network={
 		- PULSE_SERVERの環境変数を設定します。~/.bashrcの最後に次の二行を追加します
 			- export HOST_IP="$(ip route |awk '/^default/{print $3}')"
 			- export PULSE_SERVER="tcp:$HOST_IP"
-	        - 音声認識を起動します。
+	    - 音声認識を起動します。
 			- simple-stt-serverのところでnpm start -- --device default
 
 - Ubuntu
@@ -174,5 +174,5 @@ network={
 		npm install
 	- VOSKのモデルをダウンロードしsimple-stt-serverのしたにmodelのフォルダーを作りダウンロードした出たデータを展開した状態でコピーします。
 		- ダウンロードするデータ https://alphacephei.com/vosk/models/vosk-model-ja-0.22.zip
-        - 音声認識を起動します。
+    - 音声認識を起動します。
 		- simple-stt-serverのところでnpm start -- --device default
