@@ -8,10 +8,14 @@
   ],
   "modules": {
     "*": [
-      "$(MODULES)/network/ble/uart/uartserver",
       "./stk-server",
       "./beacon-packet"
     ]
+  },
+  "ble": {
+    "*": [
+	"./bleservices/*"
+         ]
   },
   "preload": [
     "stk-server",
