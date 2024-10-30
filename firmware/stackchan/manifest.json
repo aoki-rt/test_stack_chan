@@ -68,9 +68,6 @@
     },
     "platforms": {
         "esp32/m5stack_cores3": {
-            "build": {
-                "PARTITIONS_FILE": "./sdkconfig/customPartitions.csv"
-            },
             "config": {
                 "tts": {
                     "sampleRate": 24000
