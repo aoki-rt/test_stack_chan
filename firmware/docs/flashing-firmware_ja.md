@@ -50,6 +50,7 @@ CONFIG_SPIRAM=yをCONFIG_SPIRAM_nに書き換えます。
 _コマンドに`sudo`をつける必要はありません。_
 
 ```console
+$ cd ~/stack-chan/firmware
 $ npm run build --target=esp32/m5stack_cores3
 $ npm run deploy --target=esp32/m5stack_cores3
 ```
@@ -67,6 +68,15 @@ M5Stack のボタンを押すと次のように変わります。
 - A ボタン（CoreS3 の場合は画面左下の領域） ... ｽﾀｯｸﾁｬﾝが 5 秒おきにランダムな方向を見る
 - B ボタン（CoreS3 の場合は画面中央下の領域） ... ｽﾀｯｸﾁｬﾝが左、右、下、上を向く
 - C ボタン（CoreS3 の場合は画面右下の領域） ... ｽﾀｯｸﾁｬﾝの顔の色が反転する
+
+modを書き込みをした場合、上の動作ができなくなります。初期状態に戻すには、Flashの内容を消去してdeployで書き込む必要があります。
+
+```console
+$ ~/.espressif/python_env/idf5.3_py3.12_env/bin/esptool.py erase_flash
+$ cd ~/stack-chan/firmware
+$ npm run deploy --target=esp32/m5stack_cores3
+```
+
 
 ## デバッグ
 
@@ -106,6 +116,12 @@ $ npm run mod --target=esp32/m5stack_cores3 ./mods/look_around/manifest.json
 # xsc mod/config.xsb
 # xsl look_around.xsa
 Installing mod...complete
+```
+
+windowsの場合は、ポートが見つからず "/bin/sh: 1: [[ not found"のメッセージが表示され書き込みができないことがあります。その時は、npmの前にポートを指定します。  
+以下の例は[`mods/cherrup_ble_lite`](../mods/cheerup_ble_lite/)です。
+```console
+$  UPLOAD_PORT=/dev/ttyACM0 npm run mod --target=esp32/m5stack_cores3 ./mods/cheerup_ble_lite/manifest.json
 ```
 
 ## 次のステップ
