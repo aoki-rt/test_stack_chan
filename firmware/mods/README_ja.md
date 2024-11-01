@@ -206,30 +206,30 @@ network={
 	- manifest_local.json (stack-chan/firmware/stackchan/manifest_local.json) のconfigに必要な設定を追加・変更します。
 		- ChatGPTのトーク : 取得したChatGPTのトークン
 		- IPアドレス : 自分のPCに割り当てられたIPアドレス
-```console
-{
-    "include": [
-        "./manifest.json"
-    ],
-    "config": {
-        "ai": {
-            "token": "ChatGPTのトークン"
-        },
-        "tts": {
-            "type": "voicevox",
-            "host": "IPアドレス",
-            "port": 50021
-        }
-    }
-}
-```	
+			```console
+			{
+    			"include": [
+        			"./manifest.json"
+    			],
+    			"config": {
+        			"ai": {
+            		"token": "ChatGPTのトークン"
+        			},
+        			"tts": {
+            			"type": "voicevox",
+            			"host": "IPアドレス",
+           	 			"port": 50021
+        			}
+    			}
+			}
+			```	
 	- stack-chan/firmware/mods/chatgpt/mod.jsで定義されているｽﾀｯｸﾁｬﾝに使用するChatGPTのモデルに変更します。ここでは、gpt-40にします。
-	- ```console
-		const STT_HOST = 'stackchan-base.local'
-		// const MODEL = 'gpt-4'
-		// const MODEL = 'gpt-3.5-turbo'
-		const MODEL = 'gpt-4o'
-	  ```
+		```console
+			const STT_HOST = 'stackchan-base.local'
+			// const MODEL = 'gpt-4'
+			// const MODEL = 'gpt-3.5-turbo'
+			const MODEL = 'gpt-4o'
+		```
 	- ホストのビルド時に、Wi-Fiの設定が必要になります。Wi-Fiは2.4Gに接続してください。
 	    - $ npm run build --target=esp32/m5stack_cores3 ssid="SSIDの名前" password="SSIDのパスワード"
 	- ホストのプログラムを書き込みます。  
