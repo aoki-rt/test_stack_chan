@@ -117,12 +117,12 @@ MODの書き込み方法は[プログラムのビルドと書き込み](../docs/
         - SSIDのパスワードをパスフレーズに変換するコマンド
             - $ sudo wpa_passphrase Wi-FiのSSID　Wi-Fiのパスワード
         - wpa_supplicant.contをルート権限で開き、先ほど生成したパスフレーズとSSIDを書き込みます。
-```console
-network={
-	ssid=”Wi-FiのSSID”
-	psk=生成された暗号文
-}
-```
+			```console
+			network={
+				ssid=”Wi-FiのSSID”
+				psk=生成された暗号文
+			}
+			```
     - Chromeを開き、URLにhttp://10.254.239.1を入力します
     - Face Detectorを選択して顔のデータが出力します。
 - ｽﾀｯｸﾁｬﾝの設定
@@ -201,7 +201,7 @@ network={
 			- $ git clone https://github.com/VOICEVOX/voicevox_engine.git
 		- dockerを使用して起動します。dockerのインストールは https://docs.docker.com/engine/install/ubuntu/ を参照してください。
 			- $ docker pull voicevox/voicevox_engine:cpu-ubuntu20.04-latest
-			- d$ ocker run --rm -p 50021:50021 voicevox/voicevox_engine:cpu-ubuntu20.04-latest
+			- $ docker run --rm -p 50021:50021 voicevox/voicevox_engine:cpu-ubuntu20.04-latest
 - ｽﾀｯｸﾁｬﾝ側の設定
 	- manifest_local.json (stack-chan/firmware/stackchan/manifest_local.json) のconfigに必要な設定を追加・変更します。
 		- ChatGPTのトーク : 取得したChatGPTのトークン
