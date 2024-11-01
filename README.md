@@ -18,11 +18,9 @@ Stack-chan is a super cute, palm-sized communication robot developed and release
 
 <br>
 
-The version includes the following changes:
-
 The RT version introduces the following updates:
 
-* The dependent Moddable SDK version is now fixed at 4.1.
+* The dependent Moddable SDK version is now fixed at [4.9.5](https://github.com/Moddable-OpenSource/moddable/releases/tag/4.9.5).
 * Several updates have been made to the circuit diagram and board design.
 * The DYNAMIXEL XL330-M288-T servo motor has been integrated.
 * The robot's exterior casing is produced using injection molding.

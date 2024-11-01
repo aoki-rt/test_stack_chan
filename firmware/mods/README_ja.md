@@ -55,43 +55,43 @@ MODの書き込み方法は[プログラムのビルドと書き込み](../docs/
 - PC側の環境設定
 	- セキュリティの問題がありブラウザはChromeのみ対応しています。
 	- windowsの場合nodeを18.12以上にする必要があります。
-		- volta install node@18
+		- $ volta install node@18
 	- ブラウザからBluetoothへのアクセスができるようにExperimetal Web Platform featuresのフラグを有効にする必要があります。
 		- chromeのURLにchrome://flagsを入力し、Experimetal Web Platform featuresを停止から有効にします。
 	- https://github.com/meganetaaan/suburi-mediapipeをクローンします。
-		- git clone https://github.com/meganetaaan/suburi-mediapipe
+		- $ git clone https://github.com/meganetaaan/suburi-mediapipe
 	- 必要なツールをインストールします。
-		- sudo apt install -y curl
-		- curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-		- echo "deb https://dl.yarnpkg.com/debian stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+		- $ sudo apt install -y curl
+		- $ curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+		- $ echo "deb https://dl.yarnpkg.com/debian stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 		- yarnのツールのインストール
-			- ubuntu : sudo apt update && sudo apt install yarn
-			- macOS : brew install yarn
-			- Windows : volta install yarn と yarn install
-		- npm install react react-dom
+			- ubuntu : $ sudo apt update && sudo apt install yarn
+			- macOS : $ brew install yarn
+			- Windows : $ volta install yarn と yarn install
+		- $ npm install react react-dom
 	- google-chromeをインストール(windowsでwlsからchromeが認識しない時)
-		- sudo apt update
-		- sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
-		- sudo wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-		- sudo apt install google-chrome-stable
+		- $ sudo apt update
+		- $ sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+		- $ sudo wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+		- $ sudo apt install google-chrome-stable
 	- opensslのバージョンとnodeのバージョンの互換性のため以下のコマンドが必要になります。
 		- ターミナルを開くたびに以下のコマンドが必要になるため、毎回打ち込むかbashrcに追加する必要があります。
-			- export NODE_OPTIONS=--openssl-legacy-provider
+			- $ export NODE_OPTIONS=--openssl-legacy-provider
 	- node_moduleに書き込み権限がないとエラーが出た場合、cacheに書き込み権限を追加します。
-		- sudo chmod 777 /home/ubuntu/suburi-mediapipe/frontend/node_modules/.cache
+		- $ sudo chmod 777 /home/ubuntu/suburi-mediapipe/frontend/node_modules/.cache
 	- ツールはdocker compose upで起動できますが、各OSで共通して起動する手順を示します。
 		- node_modulesをfrontendとbackendにインストールします。
-			- cd suburi-mediapipe/backend
-			- npm install react-scripts
-			- cd suburi-mediapipe/frontend
-			- npm install react-scripts
+			- $ cd suburi-mediapipe/backend
+			- $ npm install react-scripts
+			- $ cd suburi-mediapipe/frontend
+			- $ npm install react-scripts
 		- frontendとbackendの2種類を起動します。
 		- 一つ目のターミナル
-			- cd suburi-mediapipe/backend
-			- yarn start(windowsはsudoが必要)
+			- $ cd suburi-mediapipe/backend
+			- $ yarn start(windowsはsudoが必要)
 		- 二つ目のターミナル
-			- cd suburi-mediapipe/frontend
-			- yarn start(windowsはsudoが必要)
+			- $ cd suburi-mediapipe/frontend
+			- $ yarn start(windowsはsudoが必要)
 	- chromeが自動起動しない場合、URLに http://localhost:3000/sandboxes/stackchan/facesync を入力します。
 	- chromeにｽﾀｯｸﾁｬﾝが表示されたら下の方にあるConnection MethodをWebSoketからbluetoothに変更し、connectをクリックします。
 	- http://localhost:3000がペア設定を求めてきます。stkを選択し、ペアリングします。
@@ -115,9 +115,9 @@ MODの書き込み方法は[プログラムのビルドと書き込み](../docs/
             - パスワードは 12345678 です。
         - 使用するSSIDのパスワードをパスフレーズに変換して/etc/wpa_supplicant.confに書き込みます。
         - SSIDのパスワードをパスフレーズに変換するコマンド
-            - sudo wpa_passphrase Wi-FiのSSID　Wi-Fiのパスワード
+            - $ sudo wpa_passphrase Wi-FiのSSID　Wi-Fiのパスワード
         - wpa_supplicant.contをルート権限で開き、先ほど生成したパスフレーズとSSIDを書き込みます。
-		```console
+```console
 network={
 	ssid=”Wi-FiのSSID”
 	psk=生成された暗号文
@@ -168,17 +168,15 @@ network={
 				- Windowsを起動するたびにpulseaduio.exeを起動します。
 		- WSL側のインストール
 			- 必要なライブラリをインストールします。
-				- sudo apt install alsa-utils
-				- sudo apt install libpulse0
-				- sudo apt install -y pulseaudio
+				- $ sudo apt install alsa-utils
+				- $ sudo apt install libpulse0
+				- $ sudo apt install -y pulseaudio
 			- WebSocketサーバの環境整えます
-				- git clone https://github.com/meganetaaan/simple-stt-server.git
-				- cd simple-stt-server
+				- $ git clone https://github.com/meganetaaan/simple-stt-server.git
+				- $ cd simple-stt-server
 				- nodeが新しいとインストールできないためnodeのバージョンを16にします。
-					volta install node@16
-				- npm install
-				- npm audit 
-				- npm audit fix
+					$ volta install node@16
+				- $ npm install
 			- VOSKのモデルをダウンロードしsimple-stt-serverのしたにmodelのフォルダーを作りダウンロードした出たデータを展開した状態でコピーします。
 				- ダウンロードするデータ https://alphacephei.com/vosk/models/vosk-model-ja-0.22.zip
 				- windowsからsimple-stt-serverのフォルダーにアクセスするにはエクスプローラーの左にあるLinuxのフォルダーがアクセスすることができます。Linux/Ubuntu-22.04/home/ubuntu/simple-sst-server
@@ -190,25 +188,25 @@ network={
 			- sudo apt install alsa-utils
 			- sudo apt install alsa-tools
 		- WebSocketサーバの環境整えます
-			- git clone https://github.com/meganetaaan/simple-stt-server.git
-			- cd simple-stt-server
-			npm install
+			- $ git clone https://github.com/meganetaaan/simple-stt-server.git
+			- $ cd simple-stt-server
+			- $ npm install
 		- VOSKのモデルをダウンロードしsimple-stt-serverのしたにmodelのフォルダーを作りダウンロードした出たデータを展開した状態でコピーします。
 			- ダウンロードするデータ https://alphacephei.com/vosk/models/vosk-model-ja-0.22.zip
 	- 続きは、WSLとUbuntu共通になります。
 		- 音声認識を起動します。
-				- simple-stt-serverのところで以下のコマンドを実行します。
-					- npm start -- --device default
+			- simple-stt-serverのところで以下のコマンドを実行します。
+				- $ npm start -- --device default
 		- ChatGPTからの返答の文章をｽﾀｯｸﾁｬﾝの発話に変換する音声合成サーバーのvoicevox_engineをクローンします。
-			- git clone https://github.com/VOICEVOX/voicevox_engine.git
+			- $ git clone https://github.com/VOICEVOX/voicevox_engine.git
 		- dockerを使用して起動します。dockerのインストールは https://docs.docker.com/engine/install/ubuntu/ を参照してください。
-			- docker pull voicevox/voicevox_engine:cpu-ubuntu20.04-latest
-			- docker run --rm -p 50021:50021 voicevox/voicevox_engine:cpu-ubuntu20.04-latest
+			- $ docker pull voicevox/voicevox_engine:cpu-ubuntu20.04-latest
+			- d$ ocker run --rm -p 50021:50021 voicevox/voicevox_engine:cpu-ubuntu20.04-latest
 - ｽﾀｯｸﾁｬﾝ側の設定
 	- manifest_local.json (stack-chan/firmware/stackchan/manifest_local.json) のconfigに必要な設定を追加・変更します。
 		- ChatGPTのトーク : 取得したChatGPTのトークン
 		- IPアドレス : 自分のPCに割り当てられたIPアドレス
-	```console
+```console
 {
     "include": [
         "./manifest.json"
@@ -235,6 +233,6 @@ const MODEL = 'gpt-4o'
 	- ホストのビルド時に、Wi-Fiの設定が必要になります。Wi-Fiは2.4Gに接続してください。
 	    - $ npm run build --target=esp32/m5stack_cores3 ssid="SSIDの名前" password="SSIDのパスワード"
 	- ホストのプログラムを書き込みます。  
-    	-  $ npm run deploy --target=esp32/m5stack_cores3  
+    	- $ npm run deploy --target=esp32/m5stack_cores3  
 	- modの書き込み  
     	- $ npm run mod --target=esp32/m5stack_cores3 ./mods/chatgpt/manifest.json 
